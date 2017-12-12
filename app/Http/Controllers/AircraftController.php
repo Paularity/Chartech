@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+
 use App\Aircraft;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -146,7 +147,17 @@ class AircraftController extends Controller
               $aircraft->price      = Input::get('price');
               $aircraft->quantity = Input::get('quantity');
               $aircraft->description = Input::get('description');
-              $aircraft->image = "No image available.";
+              if ($request->has('image')){
+                $image = Input::file('image');
+                $filename  = time() . '.' . $image->getClientOriginalExtension();
+                $path = public_path('uploads/' . $filename);
+                Image::make($image->getRealPath())->save($path);
+                $aircraft->image = $filename;
+              }
+              else {
+                $aircraft->image = Input::get('last-image');
+              }
+              
               $aircraft->save();
 
               // redirect

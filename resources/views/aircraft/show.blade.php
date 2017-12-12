@@ -12,20 +12,20 @@
 
   <div class="container">
     <div class="row">
-      <div class="well col-md-4">
-        <img src="{{ asset('uploads/'.$aircraft->image) }}">
+      <div class="col-md-4">
+          <img class="well-img" src="{{ asset('uploads/'.$aircraft->image) }}">
+          {{ Form::open(array('url' => 'aircraft/' . $aircraft->id)) }}
+             {{ Form::hidden('_method', 'DELETE') }}
+             <a class="btn btn-info" href="{{ URL::to('aircraft/' . $aircraft->id . '/edit') }}">
+               <span class="glyphicon glyphicon-pencil"></span>
+                Edit
+            </a>
+             <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+          {{ Form::close() }}
       </div>
     </div>
 
       <div class="row">
-        {{ Form::open(array('url' => 'aircraft/' . $aircraft->id)) }}
-           {{ Form::hidden('_method', 'DELETE') }}
-           <a class="btn btn-info" href="{{ URL::to('aircraft/' . $aircraft->id . '/edit') }}">
-             <span class="glyphicon glyphicon-pencil"></span>
-              Edit
-          </a>
-           <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-        {{ Form::close() }}
 
         <h3>{{ $aircraft->product_code }}</h3>
         <p>
@@ -39,7 +39,7 @@
           <div class="row">
             <div class="form-group col-md-4">
                   <label for="price">Price</label>
-                  <input type="text" class="form-control" id="price" name="price" value="{{ $aircraft->price }}" readonly >
+                  <input type="text" class="form-control" id="price" name="price" value="₱ {{ $aircraft->price }}.00" readonly >
             </div>
           </div>
 

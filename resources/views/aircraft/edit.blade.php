@@ -43,7 +43,9 @@
     <label for="uploadImg">Choose an image</label>
     <input type="file" name="image" id="image" class="image">
   </div>
-
+  <input type="hidden" name="last-image" value="{{ $aircraft->image }}">
   <input type="submit" class="btn btn-primary" name="submit" value="Update">
 
-{{ F
+{{ Form::close() }}
+
+@endsection

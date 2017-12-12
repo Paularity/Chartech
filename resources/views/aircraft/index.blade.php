@@ -11,23 +11,25 @@
 </div>
 
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped">
     <thead>
         <tr>
+            <td>Image</td>
             <td>Product Code</td>
             <td>Name</td>
             <td>Price</td>
-            <td>Action</td>
+            <td>ID</td>
 
         </tr>
     </thead>
     <tbody>
     @foreach($aircraft as $key => $value)
         <tr>
-            <td>{{ $value->product_code }}</td>
+          <td><a href="{{ URL::to('aircraft/'. $value->id) }}"><img class="min-pic" src="{{ asset('uploads/'.$value->image) }}"></a></td>
+            <td><a href="{{ URL::to('aircraft/'. $value->id) }}">{{ $value->product_code }}</a></td>
             <td>{{ $value->name }}</td>
             <td>{{ $value->price }}</td>
-            <td> <a href="{{ URL::to('aircraft/'. $value->id) }}">View Details</a> </td>
+            <td>{{ $value->id }}</td>
         </tr>
     @endforeach
     </tbody>
