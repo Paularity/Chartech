@@ -24,7 +24,7 @@
     </thead>
     <tbody>
     @foreach($aircraft as $key => $value)
-        <tr>
+        <tr class="zoom" >
           <td><a href="{{ URL::to('aircraft/'. $value->id) }}"><img class="min-pic" src="{{ asset('uploads/'.$value->image) }}"></a></td>
             <td><a href="{{ URL::to('aircraft/'. $value->id) }}">{{ $value->product_code }}</a></td>
             <td>{{ $value->name }}</td>

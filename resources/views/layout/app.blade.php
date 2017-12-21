@@ -25,7 +25,7 @@
 
     @else
     @include('inc.notification')
-    <div class="well row">
+    <div class="row">
       @yield('content')
     </div>
     @endif

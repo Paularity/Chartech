@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Session;
 use View;
 use Image;
+use Auth;
 
 class AircraftController extends Controller
 {
@@ -19,6 +20,12 @@ class AircraftController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+            $this->middleware('auth');
+     }
+
     public function index()
     {
                 // get all the nerds
@@ -92,7 +99,7 @@ class AircraftController extends Controller
     public function show($id)
     {
       // get the $aircraft
-      $aircraft = Aircraft::find($id);
+      $aircraft = Aircraft::findOrFail($id);
 
       // show the view and pass the $aircraft to it
       return View::make('aircraft.show')
@@ -157,7 +164,7 @@ class AircraftController extends Controller
               else {
                 $aircraft->image = Input::get('last-image');
               }
-              
+
               $aircraft->save();
 
               // redirect

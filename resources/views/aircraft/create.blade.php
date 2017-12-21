@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-
+<div class="well">
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ URL::to('aircraft') }}">Models</a></li>
@@ -45,7 +45,8 @@
   </div>
 
   <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+  <a class="btn btn-danger" href="{{ URL::to('aircraft') }}">Cancel</a>
 
 {{ Form::close() }}
-
+</div>
 @endsection

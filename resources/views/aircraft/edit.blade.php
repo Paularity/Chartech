@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+<div class="well">
 
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
@@ -45,7 +46,9 @@
   </div>
   <input type="hidden" name="last-image" value="{{ $aircraft->image }}">
   <input type="submit" class="btn btn-primary" name="submit" value="Update">
+  <a class="btn btn-danger" href="{{ URL::to('aircraft/'. $aircraft->id) }}">Cancel</a>
 
 {{ Form::close() }}
 
+</div>
 @endsection
