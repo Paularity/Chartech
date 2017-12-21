@@ -77,11 +77,19 @@ class AircraftController extends Controller
             $aircraft->price      = Input::get('price');
             $aircraft->quantity = Input::get('quantity');
             $aircraft->description = Input::get('description');
+
             $image = Input::file('image');
-            $filename  = time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('uploads/' . $filename);
-            Image::make($image->getRealPath())->save($path);
-            $aircraft->image = $filename;
+            if($image != "")
+            {
+              $filename  = time() . '.' . $image->getClientOriginalExtension();
+              $path = public_path('uploads/' . $filename);
+              Image::make($image->getRealPath())->save($path);
+              $aircraft->image = $filename;
+            }
+            else {
+              $aircraft->image = "no-image-available.svg";
+            }
+
              $aircraft->save();
 
             // redirect

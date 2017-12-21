@@ -4,7 +4,7 @@
 @endif
 
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" id="fadeOut">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -12,3 +12,11 @@
         </ul>
     </div>
 @endif
+
+<!-- <script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#fadeOut").fadeOut();
+    });
+});
+</script> -->
