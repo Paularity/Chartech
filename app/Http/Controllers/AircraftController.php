@@ -30,10 +30,12 @@ class AircraftController extends Controller
     {
                 // get all the nerds
           $aircraft = Aircraft::all();
-
+          $aircraft = Aircraft::paginate(5);
           // load the view and pass the nerds
           return View::make('aircraft.index')
             ->with('aircraft', $aircraft);
+
+
     }
 
     /**
@@ -192,7 +194,6 @@ class AircraftController extends Controller
       // delete
         $aircraft = Aircraft::find($id);
         $aircraft->delete();
-
         // redirect
         Session::flash('message', 'Successfully deleted the aircraft!');
         return Redirect::to('aircraft');

@@ -34,5 +34,8 @@
     @endforeach
     </tbody>
 </table>
+<div class="row text-center">
+  {{ $aircraft->links() }}
+</div>
 
 @endsection
