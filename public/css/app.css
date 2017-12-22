@@ -8353,7 +8353,14 @@ button.close {
 .well-img {
   height: 20%;
   width: 50%;
-  margin: 5px;
+  margin: 20px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.well-img:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .min-pic {
@@ -8492,5 +8499,37 @@ button.close {
   .modal-content {
     width: 100%;
   }
+}
+
+.alertCust {
+  padding: 20px;
+  background-color: #cc5555;
+  color: white;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.successCust {
+  padding: 20px;
+  background-color: #43b237;
+  color: white;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
 

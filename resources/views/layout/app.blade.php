@@ -5,6 +5,7 @@
     <title>Chartech</title>
     <!-- Compiled CSS  -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
     @include('inc.navbar')
@@ -32,9 +33,6 @@
 
     </div>
 
-
-
-    <script src="{{ asset('js/app.js') }}"></script>
   </body>
 
 </html>

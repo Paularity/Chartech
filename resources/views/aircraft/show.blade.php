@@ -21,15 +21,17 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
       </div>
+          <div class="row">
+            {{ Form::open(array('url' => 'aircraft/' . $aircraft->id)) }}
+               {{ Form::hidden('_method', 'DELETE') }}
+               <a class="btn btn-info" href="{{ URL::to('aircraft/' . $aircraft->id . '/edit') }}">
+                 <span class="glyphicon glyphicon-pencil"></span>
+                  Edit
+              </a>
+               <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            {{ Form::close() }}
+          </div>
 
-          {{ Form::open(array('url' => 'aircraft/' . $aircraft->id)) }}
-             {{ Form::hidden('_method', 'DELETE') }}
-             <a class="btn btn-info" href="{{ URL::to('aircraft/' . $aircraft->id . '/edit') }}">
-               <span class="glyphicon glyphicon-pencil"></span>
-                Edit
-            </a>
-             <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-          {{ Form::close() }}
       </div>
     </div>
 

@@ -1,22 +1,37 @@
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
+    <div class="successCust"><span class="closebtn">&times;</span>{{ Session::get('message') }}</div>
 @endif
 
 @if ($errors->any())
-    <div class="alert alert-danger" id="fadeOut">
-        <ul>
+    <div class="alertCust">
+        <span class="closebtn">&times;</span>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+            <ul>
+              <li>{{ $error }}</li>
+            </ul>
             @endforeach
-        </ul>
     </div>
 @endif
 
 <!-- <script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+}
+</script> -->
+
+<script>
 $(document).ready(function(){
-    $("button").click(function(){
-        $("#fadeOut").fadeOut();
+    $(".closebtn").click(function(){
+      var div = this.parentElement;
+        $(div).fadeOut()
     });
 });
-</script> -->
+</script>
