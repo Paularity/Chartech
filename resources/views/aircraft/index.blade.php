@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<div class="container chan">
+<div class="container">
   <h1>Models</h1>
 </div>
 

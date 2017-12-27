@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Aircraft;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+              // get all the nerds
+        $aircraft = Aircraft::all();
+        // load the view and pass the nerds
+        return view('home')
+          ->with('aircraft', $aircraft);
     }
 }

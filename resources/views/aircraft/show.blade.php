@@ -12,7 +12,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4"> 
       <img id="myImg" class="well-img" src="{{ asset('uploads/'.$aircraft->image) }}" title="Click here to see image in fullscreen.">
 
       <!-- The Modal -->

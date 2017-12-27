@@ -2,10 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chartech</title>
     <!-- Compiled CSS  -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
   </head>
   <body>
     @include('inc.navbar')
@@ -33,6 +37,10 @@
 
     </div>
 
-  </body>
+<div id="footer">
+  Copyright 2017-2018 by Chartech. All Rights Reserved.
+</div>
 
+  </body>
+  <script src="{{ elixir('js/app.js') }}"></script>
 </html>
