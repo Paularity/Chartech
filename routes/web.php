@@ -16,3 +16,11 @@ Route::resource('aircraft','AircraftController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/getRequest', function(){
+  if(Request::ajax())
+  {
+    return "getRequest has loaded completely";
+  }
+
+});

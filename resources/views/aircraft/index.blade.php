@@ -38,4 +38,37 @@
   {{ $aircraft->links() }}
 </div>
 
+<h1>Try AJAX Request here:</h1>
+
+<div id="images">
+
+</div>
+
+
+
+<button type="button" class="btn btn-warning" name="button" id="getRequest">Get Request</button>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#getRequest').click(function(){
+      $.get('getRequest',function(data){
+        var dataString = "image";
+          $.ajax({
+            type:"GET",
+            url:"http://paularity.x10host.com/wp-json/wp/v2/media",
+            data: dataString,
+            success: function(data){
+            for(var i=0 ; i < 10; i++){
+               $( "<img style='width:30%;height:30%;margin:5%'>" ).attr( "src", data[i].source_url).appendTo( "#images" );
+               console.log( "JSON Data: " + data[i].source_url );
+             }
+            }
+
+          });
+      });
+    });
+
+  });
+</script>
 @endsection
